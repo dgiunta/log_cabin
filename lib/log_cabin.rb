@@ -1,4 +1,4 @@
-# Developed by Chris Powers, Killswitch Collective on 11/18/2008
+# Developed by Chris Powers, Killswitch Collective (http://www.killswitchcollective.com) on 11/18/2008
 #
 # The LogCabin class is designed to give you the flexibility to write 
 # information about blocks of code and their execution times to 

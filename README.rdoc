@@ -1,8 +1,10 @@
 = LogCabin
 
-<em>Developed by Chris Powers, Killswitch Collective (http://www.killswitchcollective.com) on 11/18/2008</em>
+<em>Developed by Chris Powers, Killswitch Collective (http://www.killswitchcollective.com)</em>
 
-The +LogCabin+ plugin is designed to give you the flexibility to write 
+Version 0.1, 11/18/2008
+
+The <tt>LogCabin</tt> plugin is designed to give you the flexibility to write 
 information about blocks of code and their execution times to 
 specific log files in your Rails project.
 
@@ -19,13 +21,13 @@ of code in a model or controller file. For example:
     end
   end
 
-This would print this out to +/log/users_query.log+:
+This would print this out to <tt>/log/users_query.log</tt>:
 
   INFO: Finding all users with params = 'last_name: Smith, city: Chicago'
   INFO: Found a total of 32 users
   TIME: Tue Nov 18 12:34:52 -0600 2008: Operation took 3.2876 seconds
 
-It is also possible to pass an +:if+ or +:unless+ option to +LogCabin#log_to+, ex:
+It is also possible to pass an <tt>:if</tt> or <tt>:unless</tt> option to <tt>LogCabin#log_to</tt>, ex:
 
   LogCabin.log_to :users_query, :if => RAILS_ENV == 'development' do |log|
     log.info "This will not output anything unless we're in development"
