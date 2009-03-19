@@ -32,12 +32,19 @@
 # 
 class LogCabin
   
-  LOG_DIR = File.join(RAILS_ROOT, 'log')
+  DEFAULT_LOG_DIR = File.join(RAILS_ROOT, 'log')
+  cattr_accessor :log_dir
   
   def initialize(log_name, options={})
-    @file_path = file_path = File.join(LOG_DIR, log_name.to_s.gsub(/[^a-zA-Z0-9_\-]/, '') + '.log')
-    @messages = []
-    @options = options
+    log_dir    = options[:log_dir] || self.class.log_dir
+    @file_path = File.join(log_dir, log_name.to_s.gsub(/[^a-zA-Z0-9_\-]/, '') + '.log')
+    puts @file_path
+    @messages  = []
+    @options   = options
+  end
+  
+  def self.log_dir
+    @@log_dir ||= DEFAULT_LOG_DIR
   end
   
   def self.log_to(log_name, options={}, &block)
